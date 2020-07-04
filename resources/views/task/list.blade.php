@@ -50,7 +50,7 @@
         <tr>
           <th scope="row"><?php echo $i ?></th>
           <td scope="col">{{$task->content}}</td>
-          <td scope="col">{{$task->due_date->format('Y/n/d')}}</td>
+          <td scope="col">{{$task->due_date->format('Y/m/d')}}</td>
           <td><input name="agree" type="checkbox" value="1" ></td>
         </tr>
       @endforeach
