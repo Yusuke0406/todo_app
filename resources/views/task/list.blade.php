@@ -33,6 +33,28 @@
             <button type="submit" class="btn btn-success btn-block">追加</button>
           </div>
         </div>
-    </form>        
+    </form>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">タスク</th>
+          <th scope="col">期限</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+      <?php $i=0; ?>
+      @foreach ($tasks as $task)
+      <?php $i++; ?>
+        <tr>
+          <th scope="row"><?php echo $i ?></th>
+          <td scope="col">{{$task->content}}</td>
+          <td scope="col">{{$task->due_date->format('Y/n/d')}}</td>
+          <td><input name="agree" type="checkbox" value="1" ></td>
+        </tr>
+      @endforeach
+      </tbody>
+   </table>
   </div>
 @endsection

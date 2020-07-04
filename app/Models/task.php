@@ -19,5 +19,6 @@ class Task extends Model
 
     //created_atを使わない
     public $timestamps = false;
+    
 }
  

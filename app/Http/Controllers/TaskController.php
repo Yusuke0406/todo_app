@@ -16,7 +16,12 @@ class TaskController extends Controller
      * @return view
      */
     public function showList(){
-        return view('task.list');
+        // $tasks = Task::orderBy('due_date', 'asc')->where('user_id', Auth::id();)->get();
+        $query = Task::query();
+        $query->where('user_id',Auth::id());
+        $query->orderBy('due_date', 'asc');
+        $tasks = $query->get();
+        return view('task.list',['tasks' => $tasks]);
     }
 
     public function store(Request $request){
@@ -25,10 +30,10 @@ class TaskController extends Controller
 
         $task->content = $request->content;
         $task->due_date = $request->due_date;
-        $task->user_id = 1;
+        $task->user_id = Auth::id();
         $task->category_id = 1;
         $task->save();
 
-        redirect('/');
+        return redirect('/task');
     }
 }
