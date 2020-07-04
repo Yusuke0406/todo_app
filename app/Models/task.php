@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class task extends Model
+class Task extends Model
 {
     //テーブル名 
     protected $table = 'tasks';
@@ -14,8 +14,10 @@ class task extends Model
     [
         'content',
         'due_date',
-        'completed',
-        'category_id'
+        'user_id'
     ];
+
+    //created_atを使わない
+    public $timestamps = false;
 }
  

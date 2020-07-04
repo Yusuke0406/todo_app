@@ -20,3 +20,5 @@ Auth::routes();
 
 Route::get('/task','TaskController@showList')->name('task');
 
+Route::post('/task/store','TaskController@store');
+
