@@ -20,6 +20,7 @@ class TaskController extends Controller
         $query = Task::query();
         $query->where('user_id',Auth::id());
         $query->orderBy('due_date', 'asc');
+        $query->where('completed',1);
         $tasks = $query->get();
         return view('task.list',['tasks' => $tasks]);
     }
