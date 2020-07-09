@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTasksTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateTasksTable extends Migration
      */
     public function up()
     {
-        if(!Schema::hasTable('tasks')){
-            Schema::create('tasks', function (Blueprint $table) {
-                $table->increments('id');
-                $table->string('content',50);
-                $table->dateTime('due_date');
-                $table->integer('completed')->default(1);
+        if(!Schema::hasTable('categories')){
+            Schema::create('categories', function (Blueprint $table) {
+                $table->id();
+                $table->string('cat_name',10);
                 $table->unsignedBigInteger('user_id');
                 $table->foreign('user_id')->references('id')->on('users');
             });
@@ -32,6 +30,6 @@ class CreateTasksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tasks');
+        Schema::dropIfExists('categories');
     }
 }
