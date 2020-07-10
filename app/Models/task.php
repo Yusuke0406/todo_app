@@ -14,7 +14,8 @@ class Task extends Model
     [
         'content',
         'due_date',
-        'user_id'
+        'user_id',
+        'cat_id'
     ];
 
     //created_atを使わない

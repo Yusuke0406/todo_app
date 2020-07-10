@@ -14,11 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'CategoryController@index')->name('category');
+
+Route::post('/category/create','CategoryController@create');
 
 Auth::routes();
 
-Route::get('/task','TaskController@showList')->name('task');
+Route::get('/task/{id}','TaskController@showList')->name('task');
 
-Route::post('/task/store','TaskController@store');
+Route::post('/task/{id}/store','TaskController@store')->name('store');
 
+
+
+Route::post('/task/{id}/complete','TaskController@complete');
+
+Route::get('/delete/{id}', 'TaskController@delete')->name('delete');

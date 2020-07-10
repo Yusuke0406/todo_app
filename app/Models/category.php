@@ -14,4 +14,6 @@ class category extends Model
     [
         'cat_name',
     ];
+
+    public $timestamps = false;
 }
