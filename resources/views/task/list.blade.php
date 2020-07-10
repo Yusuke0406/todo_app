@@ -3,16 +3,16 @@
 @section('content')
 <div class="container">
   <h1 class="text-center h1">TASKS</h1>
-        @if ($errors->any())
-          <div class="alert alert-danger">
-              <ul>
-                  @foreach ($errors->all() as $error)
-                      <li>{{ $error }}</li>
-                  @endforeach
-              </ul>
-          </div>
-      @endif
-    <form action="/task/store" method="POST">
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    <form action="/task/{{ $cat_id }}/store" method="POST">
     {{ csrf_field() }}
         <div class="form-row">
           <div class="form-group col-sm-8">
@@ -49,9 +49,14 @@
       <?php $i++; ?>
         <tr>
           <th scope="row"><?php echo $i ?></th>
-          <td scope="col">{{$task->content}}</td>
-          <td scope="col">{{$task->due_date->format('Y/m/d')}}</td>
-          <td><input name="agree" type="checkbox" value="1" ></td>
+            <td scope="col">{{$task->content}}</td>
+            <td scope="col">{{$task->due_date->format('Y/m/d')}}</td>
+            <td>
+              <form action="/task/{{ $task->id }}/complete" method="POST">
+              {{ csrf_field() }}
+                <input type="submit" class="btn btn-success" value="完了">
+              </form>
+            </td>
         </tr>
       @endforeach
       </tbody>
