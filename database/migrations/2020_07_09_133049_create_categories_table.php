@@ -16,9 +16,9 @@ class CreateCategoriesTable extends Migration
         if(!Schema::hasTable('categories')){
             Schema::create('categories', function (Blueprint $table) {
                 $table->id();
-                $table->string('cat_name',10);
+                $table->string('cat_name',20);
                 $table->unsignedBigInteger('user_id');
-                $table->foreign('user_id')->references('id')->on('users');
+                $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             });
         }
     }
