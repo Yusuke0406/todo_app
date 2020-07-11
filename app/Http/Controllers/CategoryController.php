@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\Category;
 
+use App\Http\Requests\StoreCategory;
+
 class CategoryController extends Controller
 {
     /**
@@ -22,14 +24,18 @@ class CategoryController extends Controller
         return view('category.index',['categories' => $categories]);
     }
 
-    public function create(Request $request){
+    public function store(StoreCategory $request){
         $user = Auth::user();
         $task = new Category();
 
         $task->cat_name = $request->cat_name;
         $task->user_id = Auth::id();
         $task->save();
+        return redirect('/');
+    }
 
+    public function delete($id){
+        Category::find($id)->delete();
         return redirect('/');
     }
 }
