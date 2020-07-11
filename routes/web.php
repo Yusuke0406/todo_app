@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'CategoryController@index')->name('category');
 
-Route::post('/category/create','CategoryController@create');
+Route::post('/category/store','CategoryController@store');
+
+Route::get('/category/delete/{id}','CategoryController@delete');
 
 Auth::routes();
 

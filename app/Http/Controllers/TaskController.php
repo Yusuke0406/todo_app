@@ -45,10 +45,14 @@ class TaskController extends Controller
     }
 
     public function complete($id){
+        $user = Auth::user();
         $task = Task::find($id);
 
         $task->completed = 2;
         $task->save();
+
+        $user->point = $user->point+1;
+        $user->save();
 
         return redirect("/task/$task->cat_id");
     }
