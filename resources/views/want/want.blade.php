@@ -23,7 +23,7 @@
     {{ csrf_field() }}
         <div class="form-row">
           <div class="form-group col-sm-8">
-            <label for="inputName" class="">タスク</label>
+            <label for="inputName" class="mt-3"></label>
             <input type="textarea" class="form-control" id="content"  name="content" placeholder="やりたいこと追加" size=60>
           </div>
           <div class="form-group col-sm-1">
@@ -45,7 +45,7 @@
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">タスク</th>
+          <th scope="col">やりたいこと</th>
           <th scope="col">必要ポイント</th>
           <th scope="col"></th>
         </tr>

@@ -4,3 +4,7 @@
   bottom: 3px;
   right: 3px;
 }
+
+.flash_message{
+  color: red;
+}

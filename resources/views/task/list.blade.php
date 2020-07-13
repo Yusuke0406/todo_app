@@ -3,6 +3,7 @@
 @section('content')
 <div class="container">
   <h1 class="text-center h1">TASKS</h1>
+  <!-- エラーメッセージ -->
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -12,6 +13,12 @@
             </ul>
         </div>
     @endif
+    <!-- フラッシュメッセージ -->
+    @if (session('flash_message'))
+            <div class="flash_message bg-info text-center my-0 text-white">
+                {{ session('flash_message') }}
+            </div>
+        @endif
     <form action="/task/{{ $cat_id }}/store" method="POST">
     {{ csrf_field() }}
         <div class="form-row">

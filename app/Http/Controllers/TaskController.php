@@ -50,10 +50,10 @@ class TaskController extends Controller
 
         $task->completed = 2;
         $task->save();
-
+        
         $user->point = $user->point+1;
         $user->save();
 
-        return redirect("/task/$task->cat_id");
+        return redirect("/task/$task->cat_id")->with('flash_message', 'ポイントが貯まりました！');
     }
 }
