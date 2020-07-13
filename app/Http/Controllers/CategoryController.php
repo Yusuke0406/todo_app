@@ -31,11 +31,11 @@ class CategoryController extends Controller
         $task->cat_name = $request->cat_name;
         $task->user_id = Auth::id();
         $task->save();
-        return redirect('/');
+        return redirect('/category');
     }
 
     public function delete($id){
         Category::find($id)->delete();
-        return redirect('/');
+        return redirect('/category');
     }
 }
