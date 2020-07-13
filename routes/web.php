@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', 'ClubController@index');
 
-Route::get('/', 'CategoryController@index')->name('category');
+Route::get('/category', 'CategoryController@index')->name('category');
 
 Route::post('/category/store','CategoryController@store');
 
@@ -31,3 +32,10 @@ Route::post('/task/{id}/store','TaskController@store')->name('store');
 Route::post('/task/{id}/complete','TaskController@complete');
 
 Route::get('/delete/{id}', 'TaskController@delete')->name('delete');
+
+
+Route::get('/want','WantController@index');
+
+Route::post('/want/store','WantController@store');
+
+Route::get('/delete/{id}/want', 'WantController@delete');
