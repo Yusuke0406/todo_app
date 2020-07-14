@@ -14,7 +14,8 @@ var rec = new webkitSpeechRecognition();
 //発声が終了した時にこのイベントが走る
   rec.onresult = function(event) {
   if (event.results.length > 0) {
-    content.value = event.results[0][0].transcript;
     cat_name.value = event.results[0][0].transcript;
   }
 }
+
+
