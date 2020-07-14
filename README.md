@@ -1,71 +1,69 @@
-概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要
+#　TODOアプリ
  
-## 簡単な説明
+##　概要
+タスクとやりたいことを管理することができるアプリです。
+タスクを完了するとポイントが貯まり、そのポイントでやりたいことを購入することができます。
+さらにユーザーは累計のタスク完了数をもとに強いサッカークラブへと移籍することができます。
  
-簡単な説明簡単な説明簡単な説明簡単な説明簡単な説明簡単な説明簡単な説明
-簡単な説明簡単な説明簡単な説明簡単な説明簡単な説明簡単な説明簡単な説明
-簡単な説明簡単な説明簡単な説明簡単な説明簡単な説明簡単な説明簡単な説明
-簡単な説明簡単な説明簡単な説明簡単な説明簡単な説明簡単な説明簡単な説明
  
-***デモ***
+## 機能一覧
  
-![デモ](https://image-url.gif)
+- ユーザー登録、ログイン、編集
+- カテゴリー追加、削除
+- タスク追加、削除
+- やりたいこと追加、削除
+- ポイント機能
  
-## 機能
+## 技術仕様
+ #　開発環境
+ - PHP/laravel/MAMP/phpMyAdmin/Github/Visual Studio Code
+ #　フレームワークバージョン
+ - Laravel Framework 7.17.2
+
+## 間に合わなかった機能
  
-- 機能1（UI/計算 etc ...）
-- 機能2
-- 機能3
-- ...
+1. データベースのclubの画像を変数に入れて表示することができませんでした。その代わりにHTMLにif文を使って表示しています。
+2. タスクを投稿する時の音声認識ボタンが機能しないエラーを解決できなかったです。
  
-他の機能はこちらを参照して下さい。`awesome-tool --help`.
- 
-## 必要要件
- 
-- 要件
-- 要件
-- 要件
-- ...
- 
-## 使い方
- 
-1. 使い方
-2. 使い方
-3. 使い方
- 
-## インストール
- 
-```
-$ git clone https://github.com/TomoakiTANAKA/awesome-tool
-$ cd awesome-tool
-$ sh setup.sh
-$ ~do anything~
-```
- 
-## テスト
- 
-1. 使い方
-2. 使い方
-3. 使い方
- 
-## デプロイ
- 
-1. デプロイ
-2. デプロイ
-3. デプロイ
- 
-## その他
- 
-その他その他その他その他
-その他その他その他その他
-その他その他その他その他
-その他その他その他その他
- 
-## 作者
- 
-[@TanakanoAnchan](https://twitter.com/TanakanoAnchan)
-mail to: xxxx@mail.com
- 
-## ライセンス
- 
-[MIT](http://TomoakiTANAKA.mit-license.org)</blockquote>
+## テーブル
+### Usersテーブル
+| Column | Type | Options |
+| ------------- | ------------- |
+| name | varchar  | null: false |
+| email | varchar | null: false,unique: true |
+| password | varchar | null: false |
+| point | integer | null: false |
+
+
+### Categoriesテーブル
+| Column | Type | Options |
+| ------------- | ------------- |
+| cat_name | varchar | null: false |
+| user_id | bigintegr |null: false, foreign_key: true |
+
+
+### Tasksテーブル
+| Column | Type | Options |
+| ------------- | ------------- |
+| content | varchar | null: false,limit: 50 |
+| due_date | datetime | null: false |
+| completed | integer | null: false |
+| user_id | bigintegr |null: false, foreign_key: true |
+| cat_id | bigintegr |null: false, foreign_key: true |
+
+
+### Wantsテーブル
+| Column | Type | Options |
+| ------------- | ------------- |
+| content | varchar | null: false, limit: 30 |
+| point | integer | null: false |
+| user_id | bigintegr |null: false, foreign_key: true |
+
+### Clubsテーブル
+| Column | Type | Options |
+| ------------- | ------------- |
+| club | varchar | null: false,limit: 20 |
+| image | mediumblog | null: false |
+| point | integer | null: false |
+
+

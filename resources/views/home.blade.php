@@ -33,8 +33,8 @@
 		<div class="card-body">
 			<h5 class="card-title"> {{ Auth::user()->name }}</h5>
 			<p class="card-text">{{$club->club}}</p>
-			<p class="card-text">累計ポイント：{{ $count }}ポイント</p>
-			<p class="card-text">移籍まであと：{{ $rest }}ポイント</p>
+			<p class="card-text">累計タスク完了数：{{ $count }}回</p>
+			<p class="card-text">移籍まであと：{{ $rest }}回</p>
 		</div>
 	</div>
 	<div class="row mt-5">
