@@ -8,3 +8,9 @@
 .flash_message{
   color: red;
 }
+
+
+@media (min-width: 576px){
+  .card-pic {
+    width: 60%;
+  }
