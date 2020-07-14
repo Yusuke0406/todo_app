@@ -8,4 +8,12 @@ class club extends Model
 {
     //テーブルとの紐ずけ
     protected $table = 'clubs';
+
+    protected $guarded =
+    [
+        "club",
+        "point",
+        "image",
+    ];
+
 }
