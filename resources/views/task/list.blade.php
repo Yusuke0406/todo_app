@@ -24,11 +24,11 @@
       <div class="form-row">
         <div class="form-group col-sm-8">
           <label for="inputName" class="">タスク</label>
-          <input type="textarea" class="form-control" id="content"  name="content" placeholder="" size=60>
+          <input type="textarea" class="form-control" id="content"  name="content">
         </div>
         <div class="form-group col-sm-1 mt-2">
           <label for="inputName" class=""></label>
-          <input type="button" value="Speak" class="form-control btn-secondary" onclick="rec.start()">
+          <input type="button" value="Speak" class="form-control btn-secondary" onclick="rec3.start()">
         </div>
         <div class="form-group col-sm-3">
           <label for="inputLimit" class="">期限</label>

@@ -24,15 +24,15 @@
       <div class="form-row">
         <div class="form-group col-sm-8">
           <label for="inputName" class="mt-3"></label>
-          <input type="textarea" class="form-control" id="content"  name="content" placeholder="やりたいこと追加" size=60>
+          <input type="textarea" class="form-control" id="content"  name="content" placeholder="やりたいこと追加">
         </div>
         <div class="form-group col-sm-1">
           <label for="inputName" class=""></label>
-          <input type="button" value="Speak" class="form-control btn-secondary mt-2" onclick="rec.start()">
+          <input type="button" value="Speak" class="form-control btn-secondary mt-2" onclick="rec2.start()">
         </div>
         <div class="form-group col-sm-２">
           <label for="inputName" class="">必要ポイント</label>
-          <input type="number" class="form-control" id="point"  name="point" placeholder=""　min="0">
+          <input type="number" class="form-control" id="point"  name="point" min="0">
         </div>
       </div>
       <div class="form-row">
