@@ -2,6 +2,13 @@
 
 @section('content')
 <div class="container">
+	<h1 class="text-center h1"></h1>
+		<!-- フラッシュメッセージ -->
+			@if (session('flash_message'))
+				<div class="flash_message bg-info text-center text-white mb-2">
+					{{ session('flash_message') }}
+				</div>
+			@endif
 	<div class="card mx-auto" style="width: 400px;">
 	@if($count < 10)
 		<img src="image/boy.png" width="100%" height="250px">

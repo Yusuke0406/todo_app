@@ -31,7 +31,7 @@ class TaskController extends Controller
     //Http/Requests/StoreTaskで型が当てはまっているかの確認
     public function store(StoreTask $request,$id){
         $user = Auth::user();
-        
+
         //インスタンスを生成し送られてきたデータを代入する
         $task = new Task();
         $task->content = $request->content;
@@ -54,7 +54,19 @@ class TaskController extends Controller
         $user->point = $user->point+1;
         $user->save();
 
+        //完了したタスクをcountする
+        $query = Task::query();
+        $query->where('user_id',Auth::id());
+        $query->where('completed', 2);
+        $count = $query->count();
+
         //completeを2に変更した時にフラッシュメッセージを出す
-        return redirect("/task/$task->cat_id")->with('flash_message', 'ポイントが貯まりました！');
+        //移籍できるポイントが貯まったタイミングでHOMEに戻りフラッシュメッセージを表示
+        if($count % 10 == 0){
+            return redirect("/")->with('flash_message', 'おめでとうございます！強いチームへ移籍しました！');
+        }else{
+            return redirect("/task/$task->cat_id")->with('flash_message', 'ポイントが貯まりました！');
+        }
+        
     }
 }
