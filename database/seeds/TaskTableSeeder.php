@@ -15,7 +15,7 @@ class TaskTableSeeder extends Seeder
         DB::table('task')->delete();
 
         Task::create([
-            'content' => 'aaa', 'user_id' =>1,'category_id' =1,'due_date' = 1229,'completed'=>1
+            'content' => 'aaa', 'user_id' =>1,'category_id' =1,'due_date' => 1229,'completed'=>1;
         ])
     }
 }
