@@ -24,8 +24,9 @@
  
 ## テーブル
 ### Usersテーブル
+
 |Column|Type|Options|
-|-------------|-------------|
+|------|----|-------|
 |name| varchar|null: false|
 |email|varchar|null: false,unique: true|
 |password|varchar|null: false|
