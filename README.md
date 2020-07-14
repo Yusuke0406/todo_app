@@ -12,9 +12,9 @@
 - ポイント機能
  
 ## 技術仕様
- ###　開発環境
+### 開発環境
  - PHP/laravel/MAMP/phpMyAdmin/Github/Visual Studio Code
- ###　フレームワークバージョン
+### フレームワークバージョン
  - Laravel Framework 7.17.2
 
 ## 間に合わなかった機能
