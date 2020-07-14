@@ -55,7 +55,7 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a class="nav-link" href="{{ action('UserController@index', Auth::user()->id)}}">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
                             </li>

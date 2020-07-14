@@ -39,3 +39,9 @@ Route::get('/want','WantController@index');
 Route::post('/want/store','WantController@store');
 
 Route::get('/delete/{id}/want', 'WantController@delete');
+
+Route::get('/user/{id}', 'UserController@index')->name('profile');
+
+Route::get('/user/{id}/edit', 'UserController@edit');
+
+Route::post('/update/{id}', 'UserController@update');
