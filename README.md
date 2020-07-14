@@ -34,15 +34,17 @@
 
 
 ### Categoriesテーブル
-| Column | Type | Options |
-| ------------- | ------------- |
+
+|Column|Type|Options|
+|------|----|-------|
 | cat_name | varchar | null: false |
 | user_id | bigintegr |null: false, foreign_key: true |
 
 
 ### Tasksテーブル
-| Column | Type | Options |
-| ------------- | ------------- |
+
+|Column|Type|Options|
+|------|----|-------|
 | content | varchar | null: false,limit: 50 |
 | due_date | datetime | null: false |
 | completed | integer | null: false |
@@ -51,15 +53,17 @@
 
 
 ### Wantsテーブル
-| Column | Type | Options |
-| ------------- | ------------- |
+
+|Column|Type|Options|
+|------|----|-------|
 | content | varchar | null: false, limit: 30 |
 | point | integer | null: false |
 | user_id | bigintegr |null: false, foreign_key: true |
 
 ### Clubsテーブル
-| Column | Type | Options |
-| ------------- | ------------- |
+
+|Column|Type|Options|
+|------|----|-------|
 | club | varchar | null: false,limit: 20 |
 | image | mediumblog | null: false |
 | point | integer | null: false |
