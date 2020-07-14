@@ -1,10 +1,9 @@
-#　TODOアプリ
+##　TODOアプリ
  
 ##　概要
 タスクとやりたいことを管理することができるアプリです。
 タスクを完了するとポイントが貯まり、そのポイントでやりたいことを購入することができます。
 さらにユーザーは累計のタスク完了数をもとに強いサッカークラブへと移籍することができます。
- 
  
 ## 機能一覧
  
@@ -27,12 +26,12 @@
  
 ## テーブル
 ### Usersテーブル
-| Column | Type | Options |
-| ------------- | ------------- |
-| name | varchar  | null: false |
-| email | varchar | null: false,unique: true |
-| password | varchar | null: false |
-| point | integer | null: false |
+|Column|Type|Options|
+|-------------|-------------|
+|name| varchar|null: false|
+|email|varchar|null: false,unique: true|
+|password|varchar|null: false|
+|point|integer|null: false|
 
 
 ### Categoriesテーブル
