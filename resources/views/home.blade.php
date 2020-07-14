@@ -9,7 +9,7 @@
 					{{ session('flash_message') }}
 				</div>
 			@endif
-	<div class="card mx-auto" style="width: 400px;">
+	<div class="card mx-auto" style="width:30%;">
 	@if($count < 10)
 		<img src="image/boy.png" width="100%" height="250px">
 	@elseif(10 <= $count && $count < 20)
