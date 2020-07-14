@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Want extends Model
 {
-    //テーブル名
+    //テーブルの紐ずけ
     protected $table = 'wants';
 
     //可変項目
@@ -16,5 +16,6 @@ class Want extends Model
         'point'
     ];
 
+     //created_atを使わない
     public $timestamps = false;
 }

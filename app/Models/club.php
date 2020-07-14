@@ -6,13 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class club extends Model
 {
-    //テーブル名
+    //テーブルとの紐ずけ
     protected $table = 'clubs';
-
-    protected $guarded=
-    [
-        'club',
-        'image',
-        'point',
-    ];
 }

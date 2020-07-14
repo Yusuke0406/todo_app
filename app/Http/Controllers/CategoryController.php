@@ -12,11 +12,7 @@ use App\Http\Requests\StoreCategory;
 
 class CategoryController extends Controller
 {
-    /**
-     * タスク一覧を表示する
-     * 
-     * @return view
-     */
+    //ログインしているユーザーのカテゴリー一覧表示
     public function index(){
         $query = Category::query();
         $query->where('user_id',Auth::id());
@@ -24,6 +20,7 @@ class CategoryController extends Controller
         return view('category.index',['categories' => $categories]);
     }
 
+    //カテゴリーを追加する
     public function store(StoreCategory $request){
         $user = Auth::user();
         $task = new Category();
@@ -34,6 +31,7 @@ class CategoryController extends Controller
         return redirect('/category');
     }
 
+    //カテゴリー削除
     public function delete($id){
         Category::find($id)->delete();
         return redirect('/category');

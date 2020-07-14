@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
-    //テーブル名 
+    //テーブルとの紐ずけ 
     protected $table = 'tasks';
 
     //可変項目
@@ -21,7 +21,9 @@ class Task extends Model
     //created_atを使わない
     public $timestamps = false;
 
+    //Carbonクラスのデータに置き換える処理
     protected $dates = [
         'due_date'
     ];
+
 }

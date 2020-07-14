@@ -3,43 +3,43 @@
 @section('content')
 <div class="container">
   <h1 class="text-center h1">WANT</h1>
-      <!--　エラーメッセージ -->
-        @if ($errors->any())
+    <!--　エラーメッセージ -->
+      @if ($errors->any())
           <div class="alert alert-danger">
-              <ul>
-                  @foreach ($errors->all() as $error)
-                      <li>{{ $error }}</li>
-                  @endforeach
-              </ul>
+            <ul>
+              @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+              @endforeach
+            </ul>
           </div>
       @endif
       <!-- フラッシュメッセージ -->
       @if (session('flash_message'))
-            <div class="flash_message bg-info text-center my-0 text-white">
-                {{ session('flash_message') }}
-            </div>
-        @endif
+        <div class="flash_message bg-info text-center my-0 text-white">
+          {{ session('flash_message') }}
+        </div>
+      @endif
     <form action="/want/store" method="POST">
     {{ csrf_field() }}
-        <div class="form-row">
-          <div class="form-group col-sm-8">
-            <label for="inputName" class="mt-3"></label>
-            <input type="textarea" class="form-control" id="content"  name="content" placeholder="やりたいこと追加" size=60>
-          </div>
-          <div class="form-group col-sm-1">
-            <label for="inputName" class=""></label>
-            <input type="button" value="Speak" class="form-control btn-secondary mt-2" onclick="rec.start()">
-          </div>
-          <div class="form-group col-sm-２">
-            <label for="inputName" class="">必要ポイント</label>
-            <input type="number" class="form-control" id="point"  name="point" placeholder=""　min="0">
-          </div>
+      <div class="form-row">
+        <div class="form-group col-sm-8">
+          <label for="inputName" class="mt-3"></label>
+          <input type="textarea" class="form-control" id="content"  name="content" placeholder="やりたいこと追加" size=60>
         </div>
-        <div class="form-row">
-          <div class="form-group col-sm-12">
-            <button type="submit" class="btn btn-success btn-block">追加</button>
-          </div>
+        <div class="form-group col-sm-1">
+          <label for="inputName" class=""></label>
+          <input type="button" value="Speak" class="form-control btn-secondary mt-2" onclick="rec.start()">
         </div>
+        <div class="form-group col-sm-２">
+          <label for="inputName" class="">必要ポイント</label>
+          <input type="number" class="form-control" id="point"  name="point" placeholder=""　min="0">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-sm-12">
+          <button type="submit" class="btn btn-success btn-block">追加</button>
+        </div>
+      </div>
     </form>
     <table class="table">
       <thead>
@@ -60,13 +60,13 @@
             <td scope="col">{{$want->point}}</td>
             <td>
               <form action="/delete/{{ $want->id }}/want" method="GET">
-              {{ csrf_field() }}
+                {{ csrf_field() }}
                 <input type="submit" class="btn btn-success" value="購入">
               </form>
             </td>
         </tr>
       @endforeach
       </tbody>
-   </table>
+    </table>
   </div>
 @endsection

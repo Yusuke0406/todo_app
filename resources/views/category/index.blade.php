@@ -3,6 +3,7 @@
 @section('content')
 <div class="container">
   <h1 class="text-center h1">CATEGORY</h1>
+    <!-- エラーメッセージ -->
         @if ($errors->any())
           <div class="alert alert-danger">
               <ul>
@@ -16,10 +17,10 @@
     {{ csrf_field() }}
         <div class="form-row">
           <div class="form-group col-sm-8">
-            <input type="textarea" class="form-control" id="cat_name"  name="cat_name" placeholder="カテゴリー追加" size=60>
+            <input type="textarea" class="form-control" id="cat_name"  name="cat_name" placeholder="カテゴリー追加">
           </div>
           <div class="form-group col-sm-1">
-          <input type="button" value="Speak" class="form-control btn-secondary" onclick="rec.start()">
+            <input type="button" value="Speak" class="form-control btn-secondary" onclick="rec.start()">
           </div>
           <div class="form-group col-sm-2">
             <button type="submit" class="btn btn-success btn-block">追加</button>

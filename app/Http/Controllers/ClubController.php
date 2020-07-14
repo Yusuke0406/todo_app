@@ -12,19 +12,17 @@ use App\Models\Task;
 
 class ClubController extends Controller
 {
-    //
-        /**
-     * タスク一覧を表示する
-     * 
-     * @return view
-     */
+    //user情報の表示
     public function index(){
+      //userが完了したタスクをcountで取得
         $user = Auth::user();
         $query = Task::query();
         $query->where('user_id',Auth::id());
         $query->where('completed', 2);
         $count = $query->count();
 
+
+      //countにより異なる変数を返す
         if($count < 10){
           $club = Club::find(1);
           $rest = $club->point - $count;
@@ -54,6 +52,7 @@ class ClubController extends Controller
           $rest = 0;
         }
 
+        //上記のifでtrueだった時の変数を付与してviewを返す
         return view('home')->with([
             'club'=>$club,
             'count'=>$count,

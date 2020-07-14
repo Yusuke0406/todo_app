@@ -12,29 +12,28 @@ use App\Http\Requests\StoreTask;
 
 class TaskController extends Controller
 {
-    /**
-     * タスク一覧を表示する
-     * 
-     * @return view
-     */
+    //タスク一覧を表示
     public function showList($id){
-        // $tasks = Task::orderBy('due_date', 'asc')->where('user_id', Auth::id();)->get();
+        //タスク取得の条件
         $query = Task::query();
         $query->where('user_id',Auth::id());
         $query->orderBy('due_date', 'asc');
         $query->where('completed',1);
         $query->where('cat_id',$id);
         $tasks = $query->get();
+
+        //取得したタスクとカテゴリーのidをviewに返す
         return view('task.list',['tasks' => $tasks ,'cat_id' => $id]);
     }
 
+    //タスクを追加する
 
+    //Http/Requests/StoreTaskで型が当てはまっているかの確認
     public function store(StoreTask $request,$id){
-
-
         $user = Auth::user();
+        
+        //インスタンスを生成し送られてきたデータを代入する
         $task = new Task();
-
         $task->content = $request->content;
         $task->due_date = $request->due_date;
         $task->user_id = Auth::id();
@@ -44,16 +43,18 @@ class TaskController extends Controller
         return redirect("/task/$id");
     }
 
+    //タスクテーブルのcompleteを2に変更する
+    //ユーザーに１ポイント追加する
     public function complete($id){
-        $user = Auth::user();
         $task = Task::find($id);
-
         $task->completed = 2;
         $task->save();
         
+        $user = Auth::user();
         $user->point = $user->point+1;
         $user->save();
 
+        //completeを2に変更した時にフラッシュメッセージを出す
         return redirect("/task/$task->cat_id")->with('flash_message', 'ポイントが貯まりました！');
     }
 }
