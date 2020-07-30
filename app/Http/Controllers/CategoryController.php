@@ -21,6 +21,7 @@ class CategoryController extends Controller
     }
 
     //カテゴリーを追加する
+    //Http/Requests/StoreCategoryで型が当てはまっているかの確認
     public function store(StoreCategory $request){
         $user = Auth::user();
         $task = new Category();
